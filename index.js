@@ -1,10 +1,9 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
-  const browser = await puppeteer.launch();
+puppeteer.launch().then(async (browser) => {
   const page = await browser.newPage();
   await page.goto('https://github.com/');
   await page.screenshot({ path: 'github.png' });
 
   browser.close();
-})();
+});
